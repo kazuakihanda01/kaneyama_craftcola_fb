@@ -1,6 +1,24 @@
 * { box-sizing: border-box; }
 :root { --green:#1f6f3c; --deep-green:#0f3f25; --cedar:#7a3b12; --cola:#5a2608; --cream:#fff8e7; --orange:#ff8c32; --yellow:#ffd54a; --pink:#ff6f91; --shadow:0 18px 50px rgba(20,50,25,.25); }
-body { margin:0; min-height:100vh; font-family:"Hiragino Maru Gothic ProN","Yu Gothic",system-ui,sans-serif; color:#243223; background:linear-gradient(135deg,rgba(255,248,231,.85),rgba(213,244,198,.85)),url("kanayama-bg.jpg"); background-size:cover; background-position:center; overflow-x:hidden; }
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  color: #243223;
+
+  background-image:
+    linear-gradient(
+      rgba(255,248,231,0.45),
+      rgba(213,244,198,0.45)
+    ),
+    url("./kanayama-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}; background-size:cover; background-position:center; overflow-x:hidden; }
 .forest-bg { position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 10% 20%,rgba(255,213,74,.45),transparent 20%),radial-gradient(circle at 90% 10%,rgba(255,111,145,.35),transparent 20%),radial-gradient(circle at 15% 85%,rgba(31,111,60,.3),transparent 25%); z-index:-2; }
 .bubble { position:fixed; border-radius:999px; background:rgba(255,255,255,.4); border:3px solid rgba(255,255,255,.65); z-index:-1; }
 .bubble-1{width:160px;height:160px;left:5%;top:18%;}.bubble-2{width:90px;height:90px;right:8%;top:30%;}.bubble-3{width:130px;height:130px;right:20%;bottom:6%;}
