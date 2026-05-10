@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>金山杉クラフトコーラ 試飲アンケート</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="forest-bg"></div>
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+  <div class="bubble bubble-3"></div>
+
+  <main class="app">
+    <section class="hero">
+      <div class="mascot-card">
+        <img src="misugichan.png" alt="美杉ちゃん" class="misugi" onerror="this.style.display='none'; document.querySelector('.mascot-fallback').style.display='grid';" />
+        <div class="mascot-fallback">美杉ちゃん<br><span>画像を入れてね</span></div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="label">KANAYAMA SUGI CRAFT COLA</p>
+        <h1>金山杉クラフトコーラ<br>試飲アンケート</h1>
+        <p class="lead">飲んで、笑って、みんなで育てる。あなたの一票が味になります。</p>
+      </div>
+
+      <div class="bottle">
+        <div class="bottle-neck"></div>
+        <div class="bottle-body">
+          <span>杉</span>
+          <strong>COLA</strong>
+          <small>試作品</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <button class="tab active" data-tab="survey">回答する</button>
+      <button class="tab" data-tab="admin">統計・CSV</button>
+    </section>
+
+    <section id="surveyPanel" class="panel active-panel">
+      <form id="surveyForm" class="survey-card">
+        <div class="question star-question">
+          <h2>① 今の総合評価</h2>
+          <p>星をタップしてください</p>
+          <div class="stars" id="stars" aria-label="総合評価">
+            <button type="button" data-value="1">★</button>
+            <button type="button" data-value="2">★</button>
+            <button type="button" data-value="3">★</button>
+            <button type="button" data-value="4">★</button>
+            <button type="button" data-value="5">★</button>
+          </div>
+          <input type="hidden" id="rating" required />
+        </div>
+
+        <div class="question">
+          <label for="drinkAgain">② みなさまに選んで飲んでいただけるか？</label>
+          <select id="drinkAgain" required>
+            <option value="">選択してください</option>
+            <option>ぜひ選んで飲みたい</option>
+            <option>機会があれば飲みたい</option>
+            <option>話題性があれば飲みたい</option>
+            <option>どちらともいえない</option>
+            <option>あまり選ばないと思う</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="taste">③ 味についての評価</label>
+          <select id="taste" required>
+            <option value="">選択してください</option>
+            <option>美味しい</option>
+            <option>まあまあ美味しい</option>
+            <option>普通</option>
+            <option>イマイチ</option>
+            <option>かなり改善が必要</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="better">④ もっと美味しくするために必要なことは？</label>
+          <textarea id="better" placeholder="例：甘さを少し控える、杉の香りをもう少し出す、スパイス感を強める など"></textarea>
+        </div>
+
+        <div class="question">
+          <label for="useCase">⑤ どんな応用活用が出来そうか？</label>
+          <textarea id="useCase" placeholder="例：ソーダ割り、ハイボール、かき氷、アイス、イベントドリンク、観光体験のお土産 など"></textarea>
+        </div>
+
+        <div class="question">
+          <label for="sellable">⑥ 売れるか？</label>
+          <select id="sellable" required>
+            <option value="">選択してください</option>
+            <option>売れると思う</option>
+            <option>条件が整えば売れる</option>
+            <option>販売先次第</option>
+            <option>まだ難しい</option>
+            <option>売るには大きな改善が必要</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="sellNeed">⑦ 売れるために必要なことは？</label>
+          <textarea id="sellNeed" placeholder="例：ラベルデザイン、価格設定、試飲販売、ストーリー、ギフト箱、販売先との連携 など"></textarea>
+        </div>
+
+        <div class="question">
+          <label for="salesPlace">⑧ 想定の販売方法と販売先？</label>
+          <textarea id="salesPlace" placeholder="例：道の駅、金山町内施設、マルシェ、EC、ふるさと納税、宿泊施設、イベント限定販売 など"></textarea>
+        </div>
+
+        <div class="question">
+          <label for="freeComment">⑨ 自由ご意見</label>
+          <textarea id="freeComment" placeholder="なんでもどうぞ！"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary">回答をDBへ保存</button>
+          <button type="reset" class="secondary">入力をクリア</button>
+        </div>
+
+        <p id="saveMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section id="adminPanel" class="panel">
+      <div class="admin-card">
+        <h2>統計照会・CSVダウンロード</h2>
+        <p class="hint">管理用パスコードを入力すると、Supabaseから全回答を取得します。</p>
+
+        <div class="admin-login">
+          <input id="adminPass" type="password" placeholder="管理用パスコード" />
+          <button id="loadAdmin" class="primary" type="button">集計を表示</button>
+        </div>
+
+        <p id="adminMessage" class="message"></p>
+
+        <div id="statsArea" class="stats hidden">
+          <div class="stat-grid">
+            <div class="stat-box">
+              <span>回答数</span>
+              <strong id="countStat">0</strong>
+            </div>
+            <div class="stat-box">
+              <span>平均評価</span>
+              <strong id="avgStat">0.0</strong>
+            </div>
+            <div class="stat-box">
+              <span>最高評価</span>
+              <strong id="maxStat">0</strong>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3>⭐評価分布</h3>
+            <div id="ratingBars"></div>
+          </div>
+
+          <div class="chart-card">
+            <h3>味の評価</h3>
+            <div id="tasteBars"></div>
+          </div>
+
+          <div class="chart-card">
+            <h3>売れるか？</h3>
+            <div id="sellBars"></div>
+          </div>
+
+          <div class="actions">
+            <button id="downloadCsv" class="primary" type="button">全件CSVダウンロード</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>日時</th>
+                  <th>⭐</th>
+                  <th>飲みたいか</th>
+                  <th>味</th>
+                  <th>売れるか</th>
+                  <th>自由意見</th>
+                </tr>
+              </thead>
+              <tbody id="answerRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
