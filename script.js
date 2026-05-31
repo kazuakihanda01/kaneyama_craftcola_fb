@@ -40,17 +40,13 @@ document.getElementById("surveyForm").addEventListener("submit", async (event) =
   }
 
   const payload = {
-    rating: selectedRating,
-    drink_again: document.getElementById("drinkAgain").value,
-    taste: document.getElementById("taste").value,
-    better: document.getElementById("better").value.trim(),
-    use_case: document.getElementById("useCase").value.trim(),
-    sellable: document.getElementById("sellable").value,
-    sell_need: document.getElementById("sellNeed").value.trim(),
-    sales_place: document.getElementById("salesPlace").value.trim(),
-    free_comment: document.getElementById("freeComment").value.trim(),
-    user_agent: navigator.userAgent
-  };
+  name: document.getElementById("name").value.trim(),
+  rating: selectedRating,
+  better: document.getElementById("better").value.trim(),
+  use_case: document.getElementById("useCase").value.trim(),
+  free_comment: document.getElementById("freeComment").value.trim(),
+  user_agent: navigator.userAgent
+};
 
   message.textContent = "保存中です...";
 
