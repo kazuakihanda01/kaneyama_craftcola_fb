@@ -160,14 +160,12 @@ function renderStats(rows) {
   rows.forEach((row) => {
     const tr = document.createElement("tr");
 
-    tr.innerHTML = `
-      <td>${escapeHtml(formatDate(row.created_at))}</td>
-      <td>${escapeHtml(row.rating)}</td>
-      <td>${escapeHtml(row.drink_again)}</td>
-      <td>${escapeHtml(row.taste)}</td>
-      <td>${escapeHtml(row.sellable)}</td>
-      <td>${escapeHtml(row.free_comment || "")}</td>
-    `;
+   tr.innerHTML = `
+  <td>${escapeHtml(formatDate(row.created_at))}</td>
+  <td>${escapeHtml(row.name || "")}</td>
+  <td>${escapeHtml(row.rating)}</td>
+  <td>${escapeHtml(row.free_comment || "")}</td>
+`;
 
     tbody.appendChild(tr);
   });
