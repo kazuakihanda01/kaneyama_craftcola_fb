@@ -42,87 +42,73 @@
 
     <section id="surveyPanel" class="panel active-panel">
       <form id="surveyForm" class="survey-card">
-        <div class="question star-question">
-          <h2>① 今の総合評価</h2>
-          <p>星をタップしてください</p>
-          <div class="stars" id="stars" aria-label="総合評価">
-            <button type="button" data-value="1">★</button>
-            <button type="button" data-value="2">★</button>
-            <button type="button" data-value="3">★</button>
-            <button type="button" data-value="4">★</button>
-            <button type="button" data-value="5">★</button>
-          </div>
-          <input type="hidden" id="rating" required />
-        </div>
 
-        <div class="question">
-          <label for="drinkAgain">② みなさまに選んで飲んでいただけるか？</label>
-          <select id="drinkAgain" required>
-            <option value="">選択してください</option>
-            <option>ぜひ選んで飲みたい</option>
-            <option>機会があれば飲みたい</option>
-            <option>話題性があれば飲みたい</option>
-            <option>どちらともいえない</option>
-            <option>あまり選ばないと思う</option>
-          </select>
-        </div>
+  <div class="question">
+    <label for="name">① お名前（ニックネーム可）</label>
+    <input id="name" type="text" placeholder="お名前" />
+  </div>
 
-        <div class="question">
-          <label for="taste">③ 味についての評価</label>
-          <select id="taste" required>
-            <option value="">選択してください</option>
-            <option>美味しい</option>
-            <option>まあまあ美味しい</option>
-            <option>普通</option>
-            <option>イマイチ</option>
-            <option>かなり改善が必要</option>
-          </select>
-        </div>
+  <div class="question star-question">
+    <h2>② 今の総合評価</h2>
+    <p>星をタップしてください</p>
 
-        <div class="question">
-          <label for="better">④ もっと美味しくするために必要なことは？</label>
-          <textarea id="better" placeholder="例：甘さを少し控える、杉の香りをもう少し出す、スパイス感を強める など"></textarea>
-        </div>
+    <div class="stars" id="stars">
+      <button type="button" data-value="1">★</button>
+      <button type="button" data-value="2">★</button>
+      <button type="button" data-value="3">★</button>
+      <button type="button" data-value="4">★</button>
+      <button type="button" data-value="5">★</button>
+    </div>
 
-        <div class="question">
-          <label for="useCase">⑤ どんな応用活用が出来そうか？</label>
-          <textarea id="useCase" placeholder="例：ソーダ割り、ハイボール、かき氷、アイス、イベントドリンク、観光体験のお土産 など"></textarea>
-        </div>
+    <input type="hidden" id="rating" required />
+  </div>
 
-        <div class="question">
-          <label for="sellable">⑥ 売れるか？</label>
-          <select id="sellable" required>
-            <option value="">選択してください</option>
-            <option>売れると思う</option>
-            <option>条件が整えば売れる</option>
-            <option>販売先次第</option>
-            <option>まだ難しい</option>
-            <option>売るには大きな改善が必要</option>
-          </select>
-        </div>
+  <div class="question">
+    <label for="better">
+      ③ もっと美味しくするために必要なことは？
+    </label>
 
-        <div class="question">
-          <label for="sellNeed">⑦ 売れるために必要なことは？</label>
-          <textarea id="sellNeed" placeholder="例：ラベルデザイン、価格設定、試飲販売、ストーリー、ギフト箱、販売先との連携 など"></textarea>
-        </div>
+    <textarea
+      id="better"
+      placeholder="甘さ・香り・杉感・スパイス感・後味など"
+    ></textarea>
+  </div>
 
-        <div class="question">
-          <label for="salesPlace">⑧ 想定の販売方法と販売先？</label>
-          <textarea id="salesPlace" placeholder="例：道の駅、金山町内施設、マルシェ、EC、ふるさと納税、宿泊施設、イベント限定販売 など"></textarea>
-        </div>
+  <div class="question">
+    <label for="useCase">
+      ④ どんな応用ができそうか？
+    </label>
 
-        <div class="question">
-          <label for="freeComment">⑨ 自由ご意見</label>
-          <textarea id="freeComment" placeholder="なんでもどうぞ！"></textarea>
-        </div>
+    <textarea
+      id="useCase"
+      placeholder="ソーダ、アルコール割り、アイス、観光体験、ギフトなど"
+    ></textarea>
+  </div>
 
-        <div class="actions">
-          <button type="submit" class="primary">回答をDBへ保存</button>
-          <button type="reset" class="secondary">入力をクリア</button>
-        </div>
+  <div class="question">
+    <label for="freeComment">
+      ⑤ 自由意見
+    </label>
 
-        <p id="saveMessage" class="message"></p>
-      </form>
+    <textarea
+      id="freeComment"
+      placeholder="感想・アイデア・期待など"
+    ></textarea>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="primary">
+      フィードバックを送る
+    </button>
+
+    <button type="reset" class="secondary">
+      クリア
+    </button>
+  </div>
+
+  <p id="saveMessage" class="message"></p>
+
+</form>
     </section>
 
     <section id="adminPanel" class="panel">
