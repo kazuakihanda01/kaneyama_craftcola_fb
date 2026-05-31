@@ -106,18 +106,14 @@ document.getElementById("downloadCsv").addEventListener("click", () => {
   }
 
   const columns = [
-    "id",
-    "created_at",
-    "rating",
-    "drink_again",
-    "taste",
-    "better",
-    "use_case",
-    "sellable",
-    "sell_need",
-    "sales_place",
-    "free_comment"
-  ];
+  "id",
+  "created_at",
+  "name",
+  "rating",
+  "better",
+  "use_case",
+  "free_comment"
+];
 
   const csv = [
     columns.join(","),
